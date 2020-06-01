@@ -12,7 +12,25 @@ export class AddTaskModal extends Component {
   handleSubmit(event){
     event.preventDefault();
 
-    alert(event.target.name.value + " has been added to your Action Items!");
+    fetch('http://nathan.interview.nebullam.com:1880/tasks', {
+      method: 'POST',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        id:null,
+        name: event.target.name.value,
+        details: event.target.details.value
+      })
+    })
+    .then(res=> res.json())
+    .then((result)=> {
+      alert("Your Action Item has been added!")
+    },
+    (error)=>{
+      alert('Failed')
+    })
   }
 
   render(){
