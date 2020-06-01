@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import {Table} from 'react-bootstrap';
 import {Button, ButtonToolbar} from 'react-bootstrap'
 import {AddTaskModal} from './addTaskModal'
+import {EditTaskModal} from './editTaskModal'
 
 export class Tasks extends Component {
 
   constructor(props){
     super(props);
-    this.state ={tasks:[], addModalShow : false}
+    this.state ={tasks:[], addModalShow : false, editModalShow: false}
   }
 
   componentDidMount(){
@@ -28,8 +29,9 @@ export class Tasks extends Component {
   }
 
   render(){
-  const {tasks} = this.state;
+  const {tasks, id, name, details, complete} = this.state;
   let addModalClose=() => this.setState({addModalShow:false});
+  let editModalClose=() => this.setState({editModalShow:false});
 
     return(
       <div>
@@ -38,13 +40,36 @@ export class Tasks extends Component {
           <tr>
             <th> Action Items </th>
             <th> Details </th>
+            <th> Complete </th>
+            <th> Options </th>
+
           </tr>
         </thread>
         <tbody>
           {tasks.map(task=>
-            <tr key ={task.task_id}>
+            <tr key ={task.id}>
               <td>{task.name}</td>
               <td>{task.details}</td>
+              <td>{task.complete}</td>
+              <td>
+                <ButtonToolbar>
+                  <Button
+                    className="mr-2"
+                    variant="info"
+                    onClick = {()=> this.setState({editModalShow:true, id:task.id, name:task.name, details:task.details, complete: task.complete})}>
+                      Edit
+                  </Button>
+
+                  <EditTaskModal
+                  show={this.state.editModalShow}
+                  onHide={editModalClose}
+                  id = {this.state.id}
+                  name = {this.state.name}
+                  details = {this.state.details}
+                  />
+
+                </ButtonToolbar>
+              </td>
             </tr>
           )}
         </tbody>
