@@ -23,6 +23,10 @@ export class Tasks extends Component {
     );
   }
 
+  componentDidUpdate(){
+    this.refreshList();
+  }
+
   render(){
   const {tasks} = this.state;
   let addModalClose=() => this.setState({addModalShow:false});
