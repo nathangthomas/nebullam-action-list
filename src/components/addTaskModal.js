@@ -79,7 +79,7 @@ export class AddTaskModal extends Component {
 
                   <Form.Group controlId="details">
                     <Form.Label> Description </Form.Label>
-                    <Form.Control type="text" name="details" required placeholder="Description"/>
+                    <Form.Control type="text" name="details" placeholder="Description"/>
                   </Form.Group>
 
                   <Form.Group>
