@@ -6,7 +6,6 @@ class App extends Component {
     render() {
         return (
             <Tasks tasks={this.state.tasks} />
-            // <NewTaskForm/>
         )
     }
 
@@ -14,14 +13,14 @@ class App extends Component {
         tasks: []
     };
 
-    componentDidMount() {
-        fetch('http://nathan.interview.nebullam.com:1880/tasks')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ tasks: data })
-            })
-            .catch(console.log)
-    }
+    // componentDidMount() {
+    //     fetch('http://nathan.interview.nebullam.com:1880/tasks')
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             this.setState({ tasks: data })
+    //         })
+    //         .catch(console.log)
+    // }
 }
 
 export default App;
