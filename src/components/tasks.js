@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import {Table} from 'react-bootstrap';
-// import NewTaskForm from './newTaskForm'
-// import UpdateTaskForm from './updateTaskForm'
 import {Button, ButtonToolbar} from 'react-bootstrap'
 import {AddTaskModal} from './addTaskModal'
 
@@ -62,24 +60,4 @@ export class Tasks extends Component {
   }
 }
 
-// const Tasks = ({ tasks }) => {
-//   return (
-//     <div>
-//       <center><h1>Action List</h1></center>
-//       {tasks.map((task) => (
-//         <div class="card">
-//           <div class="card-body">
-//             <h5 class="card-title">{task.name}</h5>
-//             <h6 class="card-subtitle mb-2 text-muted">{task.details}</h6>
-//           </div>
-//         </div>
-//       ))}
-//
-//       <NewTaskForm/>
-//       <UpdateTaskForm/>
-//
-//     </div>
-//   )
-// };
-//
 export default Tasks
