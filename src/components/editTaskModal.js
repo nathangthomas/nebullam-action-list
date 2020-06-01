@@ -45,7 +45,7 @@ export class EditTaskModal extends Component {
       <div className="container">
 
         <Snackbar
-          anchorOrigin={{vertical:'bottom', horizontal:'center'}}
+          anchorOrigin={{vertical:'top', horizontal:'center'}}
           open = {this.state.snackbaropen} autoHideDuration = {3000} onClose={this.snackbarClose}
 
           message = {<span id="message-id">{this.state.snackbarmsg}</span>}
@@ -87,14 +87,13 @@ export class EditTaskModal extends Component {
                   </Form.Group>
 
                   <Form.Group>
-                  <Button variant="primary" type="submit"> Update Action Item </Button>
+                  <Button variant="primary" type="submit" onClick={this.props.onHide}> Update Action Item </Button>
                   </Form.Group>
                 </Form>
               </Col>
             </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button varient="danger" onClick={this.props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     </div>
