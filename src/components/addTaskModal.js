@@ -9,7 +9,7 @@ export class AddTaskModal extends Component {
   constructor(props){
     super(props);
 
-    this.state = {snackbaropen: false, snackbarmsg: ''}
+    this.state = {snackbaropen: false, snackbarmsg: '', user_id: props.user_id}
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -29,7 +29,8 @@ export class AddTaskModal extends Component {
       body:JSON.stringify({
         id:null,
         name: event.target.name.value,
-        details: event.target.details.value
+        details: event.target.details.value,
+        user_id: this.state.user_id
       })
     })
     .then(res=> res.json())
