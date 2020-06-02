@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import{Modal, Button, Row, Col, Form} from 'react-bootstrap'
+import{Modal, Button, Row, Col, Form, Dropdown, DropdownButton} from 'react-bootstrap'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 
@@ -8,7 +8,7 @@ export class EditTaskModal extends Component {
 
   constructor(props){
     super(props);
-    this.state = {snackbaropen: false, snackbarmsg: ''}
+    this.state = {snackbaropen: false, snackbarmsg: '', user_id: props.user_id }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,6 +19,15 @@ export class EditTaskModal extends Component {
   handleSubmit(event){
     event.preventDefault();
 
+  // function toggle(){
+  //   console.log('Default value of bool is', this.props.complete);
+  //   this.props.complete = this.props.complete ? false : true;
+  //   console.log('Toggled bool is', this.props.complete);
+  //
+  //   return this.props.complete;
+  // }
+
+
     fetch('http://nathan.interview.nebullam.com:1880/tasks', {
       method: 'PUT',
       headers: {
@@ -26,9 +35,11 @@ export class EditTaskModal extends Component {
         'Content-Type':'application/json'
       },
       body:JSON.stringify({
-        id:event.target.id.value,
+        id:this.props.id,
         name:event.target.name.value,
         details:event.target.details.value,
+        complete:event.target.complete.value,
+        user_id:this.state.user_id
       })
     })
     .then(res=> res.json())
@@ -71,9 +82,16 @@ export class EditTaskModal extends Component {
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="id">
-                    <Form.Label> ID </Form.Label>
-                    <Form.Control type="text" name="id" required disabled defaultValue={this.props.id} placeholder="ID"/>
+
+                  <Form.Group controlId="complete">
+                  <Form.Label> Complete? </Form.Label>
+
+                  <DropdownButton id="dropdown-basic-button" title="DONE">
+                  <Dropdown.Item href="#/action-1">YES</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">NO</Dropdown.Item>
+                  </DropdownButton>
+
+                  <Form.Control type="text" name="complete" defaultValue={this.props.complete} placeholder="Complete" />
                   </Form.Group>
 
                   <Form.Group controlId="name">
@@ -86,6 +104,16 @@ export class EditTaskModal extends Component {
                     <Form.Control type="text" name="details" defaultValue={this.props.details} placeholder="Description" />
                   </Form.Group>
 
+                  <Form.Group controlId="complete">
+                      <div key="default-checkbox" className="mb-3">
+                        <Form.Check
+                          type="checkbox"
+                          name="complete"
+                          label="Complete?"
+                          defaultValue={this.props.complete}/>
+                      </div>
+                  </Form.Group>
+
                   <Form.Group>
                   <Button variant="primary" type="submit" onClick={this.props.onHide}> Update Action Item </Button>
                   </Form.Group>
@@ -96,6 +124,7 @@ export class EditTaskModal extends Component {
         <Modal.Footer>
         </Modal.Footer>
       </Modal>
+
     </div>
     );
   }
