@@ -1,14 +1,17 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
-import {Button, ButtonToolbar} from 'react-bootstrap'
-import {AddTaskModal} from './addTaskModal'
-import {EditTaskModal} from './editTaskModal'
+import {Button, ButtonToolbar} from 'react-bootstrap';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBox from './checkBox';
+
+import {AddTaskModal} from './addTaskModal';
+import {EditTaskModal} from './editTaskModal';
 
 export class Tasks extends Component {
 
   constructor(props){
     super(props);
-    this.state ={tasks:[], addModalShow : false, editModalShow: false}
+    this.state ={tasks:[], addModalShow : false, editModalShow: false, user_id: props.user_id}
   }
 
   componentDidMount(){
@@ -16,7 +19,8 @@ export class Tasks extends Component {
   }
 
   refreshList(){
-    fetch('http://nathan.interview.nebullam.com:1880/tasks')
+
+    fetch('http://nathan.interview.nebullam.com:1880/user_tasks/'+ this.state.user_id)
     .then(response=> response.json())
     .then(data => {
       this.setState({tasks:data});
@@ -27,6 +31,24 @@ export class Tasks extends Component {
   componentDidUpdate(){
     this.refreshList();
   }
+
+  // completeTask(id){
+  //   fetch('http://nathan.interview.nebullam.com:1880/tasks', {
+  //     method:'PUT',
+  //     headers:{
+  //       'Accept':'application/json',
+  //       'Content-Type':'application/json'
+  //     },
+  //     body:JSON.stringify({
+  //       id:this.props.id,
+  //       name:this.props.name,
+  //       details:this.props.details,
+  //       complete: 1,
+  //       user_id:this.state.user_id
+  //     })
+  //   }
+  // })
+
 
   deleteTask(id){
     if(window.confirm('Are you sure?')){
@@ -44,12 +66,12 @@ export class Tasks extends Component {
 
     return(
       <div>
-        <Table className="mt-4" stripped bordered hover size="sm">
-        <thread>
+      <Table className="mt-4" stripped bordered hover size="sm">
+      <thread>
         <tr>
+          <th><h3>Complete</h3></th>
           <th><h3>Action Items</h3></th>
           <th><h3>Details</h3></th>
-          <th><h3>Complete</h3></th>
           <th><h3>Options</h3></th>
         </tr>
 
@@ -57,9 +79,9 @@ export class Tasks extends Component {
         <tbody>
           {tasks.map(task=>
             <tr key ={task.id}>
+            <td>{task.complete}</td>
             <td><strong>{task.name}</strong></td>
             <td>{task.details}</td>
-            <td>{task.complete}</td>
             <td>
               <ButtonToolbar>
                 <Button
@@ -81,6 +103,7 @@ export class Tasks extends Component {
                 id = {this.state.id}
                 name = {this.state.name}
                 details = {this.state.details}
+                user_id = {this.state.user_id}
                 />
 
               </ButtonToolbar>
@@ -95,7 +118,7 @@ export class Tasks extends Component {
             Add Task
           </Button>
 
-          <AddTaskModal show={this.state.addModalShow} onHide={addModalClose}/>
+          <AddTaskModal show={this.state.addModalShow} onHide={addModalClose} user_id={this.state.user_id}/>
 
         </ButtonToolbar>
       </div>
