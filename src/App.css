@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.home{
+  text-align: center;
+  padding: 20px;
+}
+
+/* .welcome{
+  display: inline-block;
+}
+
+.motto{
+  display: inline-block;
+} */
+
+.lettuce{
+  padding: 0;
+}
+
+.dd-button{
+  text-align: center;
+  padding-top: 90px;
+  background-color: rgb(247,250,249);
+}
+.page-container{
+  text-align: center;
+  padding: 100px, 100px, 100px, 100px;
+  background-color: rgb(247,250,249);
+}
+
+.btn-toolbar{
+  display: inline-block;
+}
+
+.add-btn{
+  width: 20em;
+}
+
+.task-table{
+  padding: 0px 40px 0px 40px;
+}
+
+.home-btn{
+  padding-bottom: 100px;
+  padding-right: 230px;
+  text-align: right;
+}
