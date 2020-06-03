@@ -42,7 +42,8 @@ You can also interact with a live version of Nebullam Action List hosted on Hero
 
 
 ## Schema
-The database schema is a simple one to many relationship between a Users table and Tasks table.r
+The database schema is a simple one to many relationship between a Users table and Tasks table.
+
 <img width="395" alt="Screen Shot 2020-06-03 at 9 38 32 AM" src="https://user-images.githubusercontent.com/47466067/83657421-12514600-a57e-11ea-9f63-b4172c65ac01.png">
 
 ##### [Back to Table of Contents](#table-of-contents)
