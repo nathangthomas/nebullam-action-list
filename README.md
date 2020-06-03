@@ -36,11 +36,6 @@ https://github.com/nathangthomas/nebullam-action-list
 ##### [Back to Table of Contents](#table-of-contents)
 
 
-### Live App
-( **This functionality is not currently set up.** )
-You can also interact with a live version of Nebullam Action List hosted on Heroku [HERE](https://nebullum-action-list.herokuapp.com/).
-
-
 ## Schema
 The database schema is a simple one to many relationship between a Users table and Tasks table.
 
