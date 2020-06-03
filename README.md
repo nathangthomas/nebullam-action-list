@@ -16,7 +16,7 @@ For this challenge, I was asked to create a simple ToDo app. The backend had to 
 
 
 ## Features
-- A user is able to create, view, edit, or delete a task.
+- A user is able to create, view, edit, and delete a task.
 - A user can mark a task complete. (This functionality is not yet complete - Ran into some issues with how to get a React component to make a PUT request to toggle a boolean on a click event.)
 ##### [Back to Table of Contents](#table-of-contents)
 
@@ -66,7 +66,7 @@ The database schema is a simple one to many relationship between a Users table a
   I keep coming up with new use cases for using Node-RED](https://nodered.org/) in future IOT projects and am excited to see those come to fruition. I am also currently using the skills I gained in [React](https://reactjs.org/) to implement new features on my current contract gig. I am looking forward to looking back in a short time and seeing how far I have come.
 
 ### Thorns:
-  I have had many irons in the fire and feel this has caught up to me in the form of having less time to give due diligence to everything. I am going to take this as a sign to dial back my commitments in order to give the greatest focus to my highest priorities. My enthusiasm to learn new technologies is a double edged sword. I had the option to build the front end in any framework and I eagerly jumped at the opportunity to build it in React. Ultimately I am glad I did, however, this resulted in me moving slower as I learned the nuances of a new framework and ultimately left the project with one piece of core functionality not working. 
+  I have had many irons in the fire and feel this has caught up to me in the form of having less time to give due diligence to everything. I am going to take this as a sign to dial back my commitments in order to give the greatest focus to my highest priorities. My enthusiasm to learn new technologies is a double edged sword. I had the option to build the front end in any framework and I eagerly jumped at the opportunity to build it in React. Ultimately I am glad I did, however, this resulted in me moving slower as I learned the nuances of a new framework and ultimately left the project with one piece of core functionality not working.
 
 ##### [Back to Table of Contents](#table-of-contents)
 
