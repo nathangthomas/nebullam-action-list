@@ -19,13 +19,13 @@ export class EditTaskModal extends Component {
   handleSubmit(event){
     event.preventDefault();
 
-  // function toggle(){
-  //   console.log('Default value of bool is', this.props.complete);
-  //   this.props.complete = this.props.complete ? false : true;
-  //   console.log('Toggled bool is', this.props.complete);
-  //
-  //   return this.props.complete;
-  // }
+  function toggle(){
+    console.log('Default value of bool is', this.props.complete);
+    this.props.complete = this.props.complete ? false : true;
+    console.log('Toggled bool is', this.props.complete);
+
+    return this.props.complete;
+  }
 
 
     fetch('http://nathan.interview.nebullam.com:1880/tasks', {
@@ -82,17 +82,6 @@ export class EditTaskModal extends Component {
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-
-                  <Form.Group controlId="complete">
-                  <Form.Label> Complete? </Form.Label>
-
-                  <DropdownButton id="dropdown-basic-button" title="DONE">
-                  <Dropdown.Item href="#/action-1">YES</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">NO</Dropdown.Item>
-                  </DropdownButton>
-
-                  <Form.Control type="text" name="complete" defaultValue={this.props.complete} placeholder="Complete" />
-                  </Form.Group>
 
                   <Form.Group controlId="name">
                     <Form.Label> Action Item </Form.Label>
