@@ -1,7 +1,4 @@
-# Welcome to Nebullam Action List
-
-<img width="699" alt="Screen Shot 2020-06-03 at 9 11 08 PM" src="https://user-images.githubusercontent.com/47466067/83710811-d5696b80-a5de-11ea-87d5-07da303dcb0b.png">
-
+<img width="954" alt="Screen Shot 2020-06-03 at 9 19 03 PM" src="https://user-images.githubusercontent.com/47466067/83711261-f67e8c00-a5df-11ea-9964-930e97c7ffdf.png">
 
 ## Table of Contents
 <!--ts-->
